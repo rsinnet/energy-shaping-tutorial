@@ -80,18 +80,28 @@ Fewer coordinates can be used on systems with constraints.
 
 \begin{frame}
   \frametitle{Example: Cart with Spring}
-  The time solution where $F = 0$ can be found through integration:
-  \begin{align*}
-    x(t) = \frac{{\dot x_{0}}}{\omega} \sin (\omega t) + x_{0} \cos (\omega t),
-  \end{align*}
-  where $\omega = \sqrt{k/m}$. Clearly, the solution is periodic, i.e.,
-  \begin{align*}
-    x(t) = x\left(t + \frac{2\pi}{\omega}\right).
-  \end{align*}
-  The solution to the system over one period is a \blue{limit cycle}:
-  \begin{align*}
-    \Omega = \left\{(x(t), \dot x(t)) \in \R^{2} : \dot x(t) = f \circ x(t) \mbox { and } t \in [0, 2\pi)\right\}.
-  \end{align*}
+  \only<1>{
+    The time solution where $F = 0$ can be found through integration:
+    \begin{align*}
+      x(t) = \frac{{\dot x_{0}}}{\omega} \sin (\omega t) + x_{0} \cos (\omega t),
+    \end{align*}
+    where $\omega = \sqrt{k/m}$. Clearly, the solution is periodic, i.e.,
+    \begin{align*}
+      x(t) = x\left(t + \frac{2\pi}{\omega}\right).
+    \end{align*}
+    The solution to the system over one period is a \blue{limit cycle}:
+    \begin{align*}
+      \Omega = \left\{(x(t), \dot x(t)) \in \R^{2} : \dot x(t) = f \circ x(t) \mbox { and } t \in [0, 2\pi)\right\}.
+    \end{align*}
+      }
+      
+      \only<2>{
+        \begin{figure}
+          \centering
+          \includegraphics[width=0.8\columnwidth]{figures/cart_spring_periodic_solution}
+          \caption{The cart--spring system is periodic.}
+        \end{figure}
+      }
 \end{frame}
 
 \begin{frame}
@@ -99,7 +109,7 @@ Fewer coordinates can be used on systems with constraints.
   \begin{block}{Equilibrium points}
     An equilibrium point (at the origin) is locally
     \begin{itemize}
-      \item \blue{stable} if, for each $\epsilon > 0$, there exists a $\delta > 0$ s.t. $$\|x(0)\| \leq \delta  \Rightarrow \|x(t)\| \leq \epsilon,$$
+    \item \blue{stable} if, for each $\epsilon > 0$, there exists a $\delta > 0$ s.t. $$\|x(0)\| \leq \delta  \Rightarrow \|x(t)\| \leq \epsilon,$$
       \item \blue{asymptotically stable} if stable and there exists a $\delta > 0$ s.t.
         \begin{align*}
           \|x(0)\| < \delta \Rightarrow \lim_{t \to \infty} x(t) = 0,

@@ -8,7 +8,7 @@ EVARS :=
 
 all: $(PROJNAME).pdf
 
-$(PROJNAME).pdf: $(PROJNAME).tex $(PROJNAME).sty sections/*.tex figures/*.eps_tex # figures/*.eps $(EPS_LATEX)
+$(PROJNAME).pdf: $(PROJNAME).tex $(PROJNAME).sty sections/*.tex figures/*.eps_tex figures/*.eps #$(EPS_LATEX)
 #	$(subst $\",,$(EVARS)) $(LATEX_CMD) $(PROJNAME)
 #	$(subst $\",,$(EVARS)) $(LATEX_CMD) $(PROJNAME)
 	$(EVARS) $(LATEX_CMD) $(PROJNAME)
