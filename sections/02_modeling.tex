@@ -80,9 +80,9 @@ Fewer coordinates can be used on systems with constraints.
 
 \begin{frame}
   \frametitle{Example: Cart with Spring}
-  The time solution where $F = 0$ can be found through integration
+  The time solution where $F = 0$ can be found through integration:
   \begin{align*}
-    x(t) = \frac{{\dot x_{0}}}{\omega} \sin (\omega t) + x_{0} \cos (\omega t)
+    x(t) = \frac{{\dot x_{0}}}{\omega} \sin (\omega t) + x_{0} \cos (\omega t),
   \end{align*}
   where $\omega = \sqrt{k/m}$. Clearly, the solution is periodic, i.e.,
   \begin{align*}
@@ -113,6 +113,34 @@ Fewer coordinates can be used on systems with constraints.
 \end{frame}
 
 \begin{frame}
+  \frametitle{Lyapunov's Theorem}
+  Assume there exists a \blue{Lyapunov candidate function} $V(x)$ satisfying
+  \begin{align*}
+    V(x) \bigg\{\begin{array}{l l}
+      > 0,& x \ne 0,\\
+      = 0,& x = 0.
+    \end{array}
+  \end{align*}
+  in some local region $D \subset \sX$. In $D$, the origin is locally
+  \begin{itemize}
+  \item \blue{stable} if, for all $x \in D$,
+    \begin{align*}
+      {\dot V}(x) \bigg\{\begin{array}{l l}
+      \leq 0,& x \ne 0,\\
+      = 0,& x = 0.
+      \end{array}
+    \end{align*}
+  \item \blue{asymptotically stable} if, for all $x \in D$,
+    \begin{align*}
+      {\dot V}(x) \bigg\{\begin{array}{l l}
+      < 0,& x \ne 0,\\
+      = 0,& x = 0.
+      \end{array}
+    \end{align*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
   \frametitle{Numerical Stability Analysis}
   \begin{block}{Poincar\'e Sections}
     Consider a hyperplane transverse to the orbit,
@@ -121,8 +149,4 @@ Fewer coordinates can be used on systems with constraints.
     \end{align*}
   \end{block}
   with the appropriate scalar function $h : T\sQ \to \R$.
-\end{frame}
-
-\begin{frame}
-  whoa
 \end{frame}
