@@ -1,0 +1,43 @@
+\documentclass{beamer}
+\usepackage{amssymb,amsmath,mathrsfs}
+\usepackage{catchfile,etoolbox}
+
+\usepackage{epsfig,psfrag,epstopdf}
+
+\newcommand{\sQ}{\mathcal{Q}}
+\newcommand{\nc}{\mathit{nc}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\usetheme{Szeged}
+
+\usepackage{graphicx}
+\graphicspath{{./figures/}}
+\DeclareGraphicsExtensions{.pdf,.eps,.jpg,.png}
+
+\usepackage{es_tutorial}
+
+\usepackage{media9}
+\addmediapath{videos}
+
+\title[Energy Shaping]{Orbital Stabilization of Mechanicals Systems}
+\subtitle{An Energy Shaping Approach}
+\author{R. W. Sinnet}
+\institute{Department of Mechanical Engineering\\ Texas A\&M University}
+\date{Monday, July 7, 2014}
+
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+  \frametitle{Overview}
+  \tableofcontents[sectionstyle=show,subsectionstyle=hide]
+\end{frame}
+
+%\ifdefstring{\PRELIMSECA}{1}{\input{sections/01_intro}}{}
+
+\input{sections/01_intro}
+\input{sections/02_modeling}
+
+\end{document}

@@ -1,0 +1,71 @@
+\section{Modeling}
+\showtoc
+
+\subsection{Modeling Mechanical Systems}
+
+\begin{frame}
+  \frametitle{Generalized Coordinates}
+  The smallest set of coordinates that can be used to model a system is called the \blue{generalized coordinates}.
+\begin{itemize}
+  \item A massive particle requires three coordinates, i.e., $$\sQ \in \R^3.$$
+  \item A rigid body requires six coordinates, i.e., $$\sQ \in \R^3 \times \SO = \SE.$$
+\end{itemize}
+Fewer coordinates can be used on systems with constraints.
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Example: Pendulum on a Cart}
+
+  \begin{figure}
+    \centering
+    \def\svgwidth{0.8\columnwidth}
+    \input{figures/cart_spring.eps_tex}
+    \caption{A single coordinate, $x \in \R$, can model a cart with mass $M$ connected to a wall by a spring of stiffness $K$.}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}
+  \begin{block}{Newton's Second Law}
+    By inspection, the controlled system obeys the dynamics
+    \begin{align*}
+      M {\ddot x} + K x = F.
+    \end{align*}
+    This method works on simple systems but does not scale well.
+  \end{block}
+  
+  \begin{block}{Lagrangian Method}
+  A more elegant formulation is the method of Lagrange which allows one to obtain a dynamic model by looking at the energy of a system.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lagrangian Systems}
+  Mechanical systems are defined by:
+  \begin{itemize}
+  \item Kinetic energy, $T : T\sQ \to \R^+$,\\
+  \item Potential energy, $U : \sQ \to \R$,
+  \end{itemize}
+  which together comprise the Lagrangian,
+  \begin{align*}
+    \Lagrangian(q, \dot q) = T(q, \dot q) - U(q).
+  \end{align*}
+  Dynamical motion in such a system with external forcing $F = B(q) u$ is governed by the Euler--Lagrange equation:
+  \begin{align*}
+    \frac{d}{dt} \pd{\Lagrangian}{\dq} - \pd{\Lagrangian}{\q} = B(q) u.
+  \end{align*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Using the Lagrangian Method}
+  The cart has kinetic energy $$T(x, {\dot x}) = \frac{1}{2} M {\dot x}^2$$ and potential energy $$U(x) = \frac{1}{2} K x^{2}.$$
+The Lagrangian is
+\begin{align*}
+  \Lagrangian(x, {\dot x}) = \frac{1}{2} M {\dot x}^2 - \frac{1}{2} K x^{2}.
+\end{align*}
+Applying the Euler--Langrange equation gives
+\begin{align*}
+  M {\ddot x} + K x = F.
+\end{align*}
+\end{frame}
