@@ -97,11 +97,18 @@ Fewer coordinates can be used on systems with constraints.
 \begin{frame}
   \frametitle{Stability of Nonlinear Systems}
   \begin{block}{Equilibrium points}
-    An equilibrium point is \blue{locally stable} if, for each $\epsilon > 0$, there exists a $\delta(\epsilon) > 0$ such that $$\|x(0)\| \leq \delta \Rightarrow \|x(t)\| \leq \delta(\epsilon).$$
-    An equilibrium point is \blue{locally exponentially stable} if there exist $\alpha, \delta > 0$ such that
-    \begin{align*}
-      \|x(0)\| < \delta \Rightarrow \| x(t) \| \leq \| x(0) \| e^{-\alpha t}
-    \end{align*}
+    An equilibrium point (at the origin) is locally
+    \begin{itemize}
+      \item \blue{stable} if, for each $\epsilon > 0$, there exists a $\delta > 0$ s.t. $$\|x(0)\| \leq \delta  \Rightarrow \|x(t)\| \leq \epsilon,$$
+      \item \blue{asymptotically stable} if stable and there exists a $\delta > 0$ s.t.
+        \begin{align*}
+          \|x(0)\| < \delta \Rightarrow \lim_{t \to \infty} x(t) = 0,
+        \end{align*}
+      \item \blue{exponentially stable} if there exist $\alpha, \delta > 0$ s.t.
+        \begin{align*}
+          \|x(0)\| < \delta \Rightarrow \| x(t) \| \leq \| x(0) \| e^{-\alpha t}.
+        \end{align*}
+    \end{itemize}
   \end{block}
 \end{frame}
 
