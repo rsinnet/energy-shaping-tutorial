@@ -152,14 +152,18 @@
     \begin{align*}
       \Aclf(x, {\dot x}) &= 2(E(x, {\dot x}) - E_{0}) \frac{K}{M} x,\\
       \bclf(x, {\dot x}) &= -\epsilon(E(x, {\dot x})- E_{0})^2.
-    \end{align*} 
+    \end{align*}
+    The closed form solution to the above is the \blue{min-norm controller}:
+    \begin{align*}
+      \mu(x, {\dot x}) = -\frac{1}{2} \epsilon \left(E(x, {\dot x}) - E_{0}\right) \frac{M}{K} x.
+    \end{align*}
   }
 
   \only<5>{
     \begin{figure}
       \centering
       \includegraphics[width=0.8\columnwidth]{cart_spring_es}
-      \caption{Energy shaping can shift the cart between energy levels. The difference is evidence in the amplitude of the solution.}
+      \caption{Energy shaping can shift the cart between energy levels. The difference is evident in the amplitude of the solution.}
     \end{figure}
   }
 
