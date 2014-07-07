@@ -8,15 +8,12 @@ EVARS :=
 
 all: $(PROJNAME).pdf
 
-$(PROJNAME).pdf: $(PROJNAME).tex $(PROJNAME).sty sections/*.tex figures/*.eps_tex figures/*.eps #$(EPS_LATEX)
-#	$(subst $\",,$(EVARS)) $(LATEX_CMD) $(PROJNAME)
-#	$(subst $\",,$(EVARS)) $(LATEX_CMD) $(PROJNAME)
-	$(EVARS) $(LATEX_CMD) $(PROJNAME)
-	$(EVARS) $(LATEX_CMD) $(PROJNAME)
+$(PROJNAME).pdf: $(PROJNAME).tex $(PROJNAME).sty sections/*.tex figures/*.eps_tex figures/*.eps $(EPS_LATEX)
+	$(subst $\",,$(EVARS)) $(LATEX_CMD) $(PROJNAME)
+	$(subst $\",,$(EVARS)) $(LATEX_CMD) $(PROJNAME)
 
-
-#figures/%.eps_latex: figures/%.eps_tex figures/%.eps do_latex_subs.py latex_subs.json
-#	./do_latex_subs.py $(basename $(notdir $<))
+figures/%.eps_latex: figures/%.eps_tex figures/%.eps do_latex_subs.py latex_subs.json
+	./do_latex_subs.py $(basename $(notdir $<))
 
 clean:
 	rm -f $(PROJNAME).pdf $(PROJNAME).ps $(PROJNAME).lot $(PROJNAME).lof \

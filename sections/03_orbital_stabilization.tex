@@ -17,6 +17,7 @@
   \end{block}
 \end{frame}
 
+
 \begin{frame}[t]
   \frametitle{Overview}
   \only<1>{
@@ -99,3 +100,83 @@
   \end{align*}
   with positive weighting coefficient $\nu \in \R$.
 \end{frame}
+
+\begin{frame}[t]
+  \frametitle{Example: Cart with Spring}
+  \only<1>{
+   \begin{figure}
+      \centering
+      \def\svgwidth{0.8\columnwidth}
+      \input{figures/cart_spring.eps_tex}
+      \caption{A single coordinate, $x \in \R$, can model a cart with mass $M$ connected to a wall by a spring of stiffness $K$.}
+    \end{figure}
+  }
+
+  \only<2>{
+    Consider the Lypaunov candidate function
+    \begin{align*}
+      V(x, \dot x) = (E(x, {\dot x}) - E_{0})^{2}
+    \end{align*}
+    where $$E(x, {\dot x}) = \frac{1}{2} M {\dot x}^2 + \frac{1}{2} K x^2.$$
+    Differentiation gives
+    \begin{align*}
+      {\dot V}(x, {\dot x}) = 2\left(E(x, {\dot x}) - E_{0}\right) {\dot E}(x, {\dot x})
+    \end{align*}
+    Under control input $u$,
+    \begin{align*}
+      {\dot E}(x, {\dot x}) =  L_{f}(x, {\dot x}) + L_{g} E(x, {\dot x}) u.
+    \end{align*}
+  }
+
+  \only<3>{
+    The Lyapunov function $V(x)$ in
+    \begin{align*}
+      \epsilon V(x, {\dot x}) + 2\left(E(x, {\dot x}) - E_{0}\right) \left(L_{f} E(x, {\dot x}) + L_{g} E(x, {\dot x}) u \right) \leq 0
+    \end{align*}
+    includes $u$ and is called a control Lyapunov function. The Lie derivatives are
+    \begin{align*}
+      L_{f} E(x, {\dot x}) &= \pd{E(x, {\dot x})}{x} {\dot x} + \pd{E(x, {\dot x})}{{\dot x}} \left(-\frac{K}{M} x\right)\\
+      &= K x \dot x - K x {\dot x} = 0,\\
+      L_{g} E_{c}(x, {\dot x}) &= \pd{E_{c}(x, {\dot x})}{{\dot x}} \frac{1}{M}\\
+      &= \frac{K}{M} x.
+    \end{align*}
+  }
+
+  \only<4>{
+    Energy shaping is achieved by applying the following control law:
+    \begin{align*}
+      \mu(x) = \argmin_{u \in \R} \, & u^T u\\
+      \mbox{s.t. } & \Aclf(x) \, u \leq \bclf(x)%\\
+    \end{align*}
+    where
+    \begin{align*}
+      \Aclf &=  2(E(x, {\dot x}) - E_{0}) \frac{K}{M},\\
+      \bclf &= -2\epsilon(E(x, {\dot x}) - E_{0}).
+    \end{align*} 
+  }
+
+  \only<5>{
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.8\columnwidth]{cart_spring_es}
+      \caption{Energy shaping can shift the cart between energy levels. The difference is evidence in the amplitude of the solution.}
+    \end{figure}
+  }
+
+  \only<6>{
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.8\columnwidth]{cart_spring_es_energy}
+      \caption{The transition between energy levels demonstrates exponential convergence.}
+    \end{figure}
+  }
+
+  \only<7>{
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.8\columnwidth]{cart_spring_es_control}
+      \caption{The controller applies feedback to converge to the desired energy level. Discontinuous control can be avoided with conditions on the optimization problem.}
+    \end{figure}
+  }
+\end{frame}
+
