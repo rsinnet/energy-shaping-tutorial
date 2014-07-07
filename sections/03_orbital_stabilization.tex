@@ -145,13 +145,13 @@
   \only<4>{
     Energy shaping is achieved by applying the following control law:
     \begin{align*}
-      \mu(x) = \argmin_{u \in \R} \, & u^T u\\
-      \mbox{s.t. } & \Aclf(x) \, u \leq \bclf(x)%\\
+      \mu(x, {\dot x}) = \argmin_{u \in \R} \, & u^T u\\
+      \mbox{s.t. } & \Aclf(x, {\dot x}) \, u \leq \bclf(x, {\dot x})%\\
     \end{align*}
     where
     \begin{align*}
-      \Aclf &=  2(E(x, {\dot x}) - E_{0}) \frac{K}{M} x,\\
-      \bclf &= -2\epsilon(E(x, {\dot x}) - E_{0}).
+      \Aclf(x, {\dot x}) &= 2(E(x, {\dot x}) - E_{0}) \frac{K}{M} x,\\
+      \bclf(x, {\dot x}) &= -\epsilon(E(x, {\dot x})- E_{0})^2.
     \end{align*} 
   }
 
