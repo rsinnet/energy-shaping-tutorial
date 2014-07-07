@@ -76,7 +76,7 @@
 
 \begin{frame}
   \frametitle{Impact Dynamics}
-  Introduce extended coordinates $\qe = (X, \q^{T})^{T} \in \mathrm{SE}(3) \times \ConfigurationSpace$ which contains the kinematics of a reference point on the robot. Angular momentum balance based on H{\"u}rm{\"u}zl{\"u} and Marghitu:
+  Introduce extended coordinates $\qe = (X^{T}, \q^{T})^{T} \in \mathrm{SE}(3) \times \ConfigurationSpace$ which contains the kinematics of a reference point on the robot. Angular momentum balance based on H{\"u}rm{\"u}zl{\"u} and Marghitu:
   \begin{massump}
     \begin{itemize}
     \item Rigid-body plastic impacts
@@ -102,7 +102,7 @@
   \end{align*}
 \end{frame}
 
-\subsection{Solutions to Hybrid Systems}
+%\subsection{Solutions to Hybrid Systems}
 \begin{frame}[t]
   \frametitle{Hybrid Flows}
   A \alert{hybrid flow} of $\HS$ is a tuple
@@ -520,10 +520,9 @@
   \only<2>{
     \begin{block}{Spring--Damper Controller}
       \begin{align*}
-        u(\q) = -\beta e^{-\rho \, h_{\mathrm{nst}}(\q)}
+        u(\q) = -k_p \theta(\q) - k_d \dot \theta(\dq)
       \end{align*}
-      where $\beta, \rho \in \R^{+}$ and $h_{\mathrm{nst}} : \ConfigurationSpace \to \R$ is the height of the Nonstance toe.
-      Used on
+      where $k_{p}, k_{d} \in \R^{+}$. Used on
       \begin{itemize}
       \item Stance ankle\\
       \item Nonstance ankle\\
@@ -537,9 +536,9 @@
   \only<3>{
     \begin{block}{Scuffing Prevention Controller}
       \begin{align*}
-        u(\q) = k_p \theta(\q) - k_d \dot \theta(\dq)
+        u(\q) = -\beta e^{-\rho \, h_{\mathrm{nst}}(\q)}
       \end{align*}
-      where $k_{p}, k_{d} \in \R^{+}$. Used on
+      where $\beta, \rho \in \R^{+}$ and $h_{\mathrm{nst}} : \ConfigurationSpace \to \R$ is the height of the Nonstance toe. Used on
       \begin{itemize}
       \item Nonstance ankle
       \end{itemize}
